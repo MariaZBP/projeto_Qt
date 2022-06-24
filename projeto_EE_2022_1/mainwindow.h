@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QString>
 
 namespace Ui {
 class MainWindow;
@@ -17,7 +16,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_my_button_clicked();
+    void on_btnLogin_clicked();
 
 private:
     Ui::MainWindow *ui;
