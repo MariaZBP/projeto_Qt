@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/Imagens">
+        <file>Imagens/banco de dados1.png</file>
+        <file>Imagens/banco-de-dados-de-transferencia-de-conceito-de-tecnologia-de-computacao-em-nuvem-para-nuvem_371307-77.webp</file>
+        <file>Imagens/images.jpg</file>
+        <file>Imagens/shutterstock_360072635.jpg</file>
+    </qresource>
+</RCC>
