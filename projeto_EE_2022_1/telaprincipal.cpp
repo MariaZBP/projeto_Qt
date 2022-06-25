@@ -4,6 +4,7 @@
 #include <QtSql>
 #include <QMessageBox>
 #include "cadastrofuncionarios.h"
+#include "editarfuncionario.h"
 
 TelaPrincipal::TelaPrincipal(QWidget *parent) :
     QDialog(parent),
@@ -209,6 +210,37 @@ void TelaPrincipal::on_btnCadastrarFuncionario_clicked()
 void TelaPrincipal::on_btnExcluirFuncionario_clicked()
 {
 
+    //começa da linha selecionada
+    int linhaAtual = ui->tableWidgetFuncionario->currentRow();
 
+    QString idSelecionado = ui->tableWidgetFuncionario->item(linhaAtual, 0)->text();
+
+    QSqlQuery bancoDeDados;
+
+    bancoDeDados.prepare("Delete from Funcionarios where idFuncionario = "+idSelecionado);
+
+    if(bancoDeDados.exec()){
+
+        ui->tableWidgetFuncionario->removeRow(linhaAtual);
+        QMessageBox::information(this, "Atenção", "Funcionário excluído com sucesso!");
+
+    }else{
+
+        QMessageBox::information(this, "Atenção", "Erro ao excluir o funcionário!");
+
+    }
+
+}
+
+void TelaPrincipal::on_tableWidgetFuncionario_cellDoubleClicked(int row, int column)
+{
+
+    int linhaAtual = ui->tableWidgetFuncionario->currentRow();
+
+    int idFuncionario = ui ->tableWidgetFuncionario->item(linhaAtual, 0)->text().toInt();
+
+    editarFuncionario dadosFuncionario(this, idFuncionario);
+
+    dadosFuncionario.exec();
 
 }

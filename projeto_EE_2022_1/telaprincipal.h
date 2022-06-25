@@ -27,6 +27,8 @@ private slots:
 
     void on_btnExcluirFuncionario_clicked();
 
+    void on_tableWidgetFuncionario_cellDoubleClicked(int row, int column);
+
 private:
     Ui::TelaPrincipal *ui;
 };
