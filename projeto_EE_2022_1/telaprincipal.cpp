@@ -56,6 +56,21 @@ void TelaPrincipal::carregarDados(){
 
     if(pegaDados.exec()){
 
+        int linha = 0;
+        ui->tableWidgetFuncionario->setColumnCount(8);
+
+        while(pegaDados.next()){
+
+            for(int i = 0; i < 8; i++){
+
+                ui->tableWidgetFuncionario->setItem(linha, i, new QTableWidgetItem(pegaDados.value(i).toString()));
+
+            }
+
+            ui->tableWidgetFuncionario->setRowHeight(linha, 40);
+            linha++;
+        }
+
 
     }else{
 
