@@ -18,8 +18,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>1161</width>
-     <height>681</height>
+     <width>1201</width>
+     <height>721</height>
     </rect>
    </property>
    <property name="font">
@@ -114,9 +114,9 @@
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>220</y>
+       <y>230</y>
        <width>1111</width>
-       <height>391</height>
+       <height>371</height>
       </rect>
      </property>
     </widget>

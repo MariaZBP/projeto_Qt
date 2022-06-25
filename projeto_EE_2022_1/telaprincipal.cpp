@@ -61,6 +61,8 @@ void TelaPrincipal::carregarDados(){
 
         while(pegaDados.next()){
 
+            ui->tableWidgetFuncionario->insertRow(linha);
+
             for(int i = 0; i < 8; i++){
 
                 ui->tableWidgetFuncionario->setItem(linha, i, new QTableWidgetItem(pegaDados.value(i).toString()));
@@ -68,8 +70,30 @@ void TelaPrincipal::carregarDados(){
             }
 
             ui->tableWidgetFuncionario->setRowHeight(linha, 40);
+
             linha++;
         }
+
+        //coloca os títulos na tabela
+        QStringList titulos = {"ID", "CPF", "Nome", "Salário", "Departamento", "Data Nascimento", "Telefone", "E-mail"};
+
+        ui->tableWidgetFuncionario->setHorizontalHeaderLabels(titulos);
+
+        //oculta os números das linhas que ficaram a esquerda
+        ui->tableWidgetFuncionario->verticalHeader()->setVisible(false);
+
+        //ajusta a largura das colunas
+        ui->tableWidgetFuncionario->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+        ui->tableWidgetFuncionario->verticalHeader()->resizeSections(QHeaderView::ResizeToContents);
+
+        //desabilita a edição dos dados direto na tablewidgetFuncionario
+        ui->tableWidgetFuncionario->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+        //seleciona a linha inteira da tablewidgetFuncionario
+        ui->tableWidgetFuncionario->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+        //mudar a cor dos títulos da tabela
+        ui->tableWidgetFuncionario->setStyleSheet("QHeaderView::section {color: white; background-color: #55aa7f}");
 
 
     }else{
