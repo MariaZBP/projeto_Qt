@@ -2,6 +2,7 @@
 #define TELAPRINCIPAL_H
 
 #include <QDialog>
+#include <QTableWidget>
 
 namespace Ui {
 class TelaPrincipal;
@@ -16,6 +17,11 @@ public:
     ~TelaPrincipal();
 
     void carregarDados();
+
+    void limparTableWidget(QTableWidget *limpaTW);
+
+private slots:
+    void on_txtPesquisarFuncionario_textChanged(const QString &arg1);
 
 private:
     Ui::TelaPrincipal *ui;

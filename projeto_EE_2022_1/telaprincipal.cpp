@@ -102,3 +102,93 @@ void TelaPrincipal::carregarDados(){
     }
 
 }
+
+void TelaPrincipal::limparTableWidget(QTableWidget *limpaTW){
+
+    while(limpaTW->rowCount() > 0){
+
+        //0 = primeira linha
+        limpaTW->removeRow(0);
+
+    }
+
+}
+
+void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
+{
+
+    QString pesquisa;
+
+    limparTableWidget(ui->tableWidgetFuncionario);
+
+    QString textoPesquisa = ui->txtPesquisarFuncionario->text();
+
+    if(textoPesquisa == ""){
+
+        if(ui->rdCPF->isChecked()){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios order by cpfFuncionario";
+
+        }else if(ui->rdNome->isChecked()){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios order by nomeFuncionario";
+
+        }else{
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios order by departamentoFuncionario";
+
+        }
+
+    }else{
+
+        if(ui->rdCPF->isChecked()){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where cpfFuncionario = "+textoPesquisa+" order by cpfFuncionario";
+
+        }else if(ui->rdNome->isChecked()){
+
+            //digitando parte do nome o like já trás ele
+            //%-> começa em qualquer valor e termina em qualquer valor
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where nomeFuncionario like '%"+textoPesquisa+"%' order by nomeFuncionario";
+
+        }else{
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where departamentoFuncionario like '%"+textoPesquisa+"%' order by departamentoFuncionario";
+
+        }
+
+    }
+
+    int linha = 0;
+
+    QSqlQuery pegaDados;
+
+    pegaDados.prepare(pesquisa);
+
+    if(pegaDados.exec()){
+
+        while(pegaDados.next()){
+
+            //insere a linha de acordo com a variável linha
+            ui->tableWidgetFuncionario->insertRow(linha);
+
+            //passa os itens (linha, coluna, item QTableWidgetItem)
+            for(int i = 0; i < 8; i++){
+
+                ui->tableWidgetFuncionario->setItem(linha, i, new QTableWidgetItem(pegaDados.value(i).toString()));
+
+            }
+
+            ui->tableWidgetFuncionario->setRowHeight(linha, 40);
+
+            linha++;
+
+        }
+
+    }else{
+
+        QMessageBox::information(this, "Atenção", "Erro ao encontrar funcionários!");
+
+    }
+
+}
