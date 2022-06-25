@@ -3,6 +3,7 @@
 
 #include <QtSql>
 #include <QMessageBox>
+#include "cadastrofuncionarios.h"
 
 TelaPrincipal::TelaPrincipal(QWidget *parent) :
     QDialog(parent),
@@ -49,7 +50,20 @@ TelaPrincipal::~TelaPrincipal()
     delete ui;
 }
 
+void TelaPrincipal::limparTableWidget(QTableWidget *limpaTW){
+
+    while(limpaTW->rowCount() > 0){
+
+        //0 = primeira linha
+        limpaTW->removeRow(0);
+
+    }
+
+}
+
 void TelaPrincipal::carregarDados(){
+
+    limparTableWidget(ui->tableWidgetFuncionario);
 
     QSqlQuery pegaDados;
     pegaDados.prepare("Select * from Funcionarios");
@@ -99,17 +113,6 @@ void TelaPrincipal::carregarDados(){
     }else{
 
         QMessageBox::information(this, "Atenção", "Erro ao carregar os funcionários!");
-    }
-
-}
-
-void TelaPrincipal::limparTableWidget(QTableWidget *limpaTW){
-
-    while(limpaTW->rowCount() > 0){
-
-        //0 = primeira linha
-        limpaTW->removeRow(0);
-
     }
 
 }
@@ -190,5 +193,22 @@ void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
         QMessageBox::information(this, "Atenção", "Erro ao encontrar funcionários!");
 
     }
+
+}
+
+void TelaPrincipal::on_btnCadastrarFuncionario_clicked()
+{
+
+    CadastroFuncionarios abreFormularioCadastro;
+    abreFormularioCadastro.exec();
+
+    carregarDados();
+
+}
+
+void TelaPrincipal::on_btnExcluirFuncionario_clicked()
+{
+
+
 
 }
