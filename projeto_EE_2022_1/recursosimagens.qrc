@@ -1,10 +1,22 @@
 <RCC>
     <qresource prefix="/Imagens">
+        <file>Imagens/Gestão-de-Banco-de-Dados-Advanced-IT.webp</file>
+        <file>Imagens/abrir.png</file>
+        <file>Imagens/cancelar.png</file>
+        <file>Imagens/colar.png</file>
+        <file>Imagens/copiar.png</file>
+        <file>Imagens/editar.png</file>
+        <file>Imagens/excluir.png</file>
+        <file>Imagens/novo.png</file>
+        <file>Imagens/pesquisar.png</file>
+        <file>Imagens/recortar.png</file>
+        <file>Imagens/sair.png</file>
+        <file>Imagens/salvar.png</file>
+        <file>Imagens/sobre.png</file>
+        <file>Imagens/images.jpg</file>
         <file>Imagens/banco de dados1.png</file>
         <file>Imagens/banco-de-dados-de-transferencia-de-conceito-de-tecnologia-de-computacao-em-nuvem-para-nuvem_371307-77.webp</file>
-        <file>Imagens/images.jpg</file>
-        <file>Imagens/shutterstock_360072635.jpg</file>
-        <file>Imagens/Gestão-de-Banco-de-Dados-Advanced-IT.webp</file>
         <file>Imagens/images1.jpg</file>
+        <file>Imagens/shutterstock_360072635.jpg</file>
     </qresource>
 </RCC>
