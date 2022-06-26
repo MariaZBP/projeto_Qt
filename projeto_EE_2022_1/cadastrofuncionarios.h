@@ -24,4 +24,4 @@ private:
     Ui::CadastroFuncionarios *ui;
 };
 
-#endif // CADASTROFUNCIONARIOS_H
+#endif

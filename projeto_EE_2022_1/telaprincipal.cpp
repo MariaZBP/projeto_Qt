@@ -28,22 +28,43 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
                                                "selection-background-color: #aaff7f;");
 
     ui->btnCadastrarFuncionario->setStyleSheet(
-                "colr: white;"
+                "color: black;"
                 "background-color: #00ff7f;"
                 "border-style: outset;"
                 "border-width: 2px;"
                 "border-radius: 10px;"
                 "border-color: white;"
-                "font: bold 14px;");
+                "font: bold 16px;");
 
     ui->btnExcluirFuncionario->setStyleSheet(
-                "colr: white;"
+                "color: black;"
                 "background-color: #00ff7f;"
                 "border-style: outset;"
                 "border-width: 2px;"
                 "border-radius: 10px;"
                 "border-color: white;"
-                "font: bold 14px;");
+                "font: bold 16px;");
+
+    ui->btnExportarExcel->setStyleSheet(
+                "color: black;"
+                "background-color: #aaffff;"
+                "border-style: outset;"
+                "border-width: 2px;"
+                "border-radius: 10px;"
+                "border-color: white;"
+                "font: bold 16px;");
+
+    QFont fonte = ui->lblTotalSalarios->font();
+    fonte.setPointSize(10);
+    fonte.setBold(true);
+    ui->lblTotalSalarios->setFont(fonte);
+    ui->lblMaiorSalario->setFont(fonte);
+
+    //mudar a cor do texto
+    QPalette paleta = ui->lblTotalSalarios->palette();
+    paleta.setColor(ui->lblTotalSalarios->foregroundRole(), Qt::blue);
+    ui->lblTotalSalarios->setPalette(paleta);
+    ui->lblMaiorSalario->setPalette(paleta);
 
     carregarDados();
 
@@ -103,15 +124,6 @@ void TelaPrincipal::carregarDados(){
 
            ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
            ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
-           ui->lblTotalSalarios->setStyleSheet("color: black;"
-                                               "background-color: #aaff7f;"
-                                               "selection-color: black;"
-                                               "selection-background-color: #aaff7f;");
-           ui->lblMaiorSalario->setStyleSheet("color: black;"
-                                               "background-color: #aaff7f;"
-                                               "selection-color: black;"
-                                               "selection-background-color: #aaff7f;");
-
            ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
 
         }

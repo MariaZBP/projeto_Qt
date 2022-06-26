@@ -28,4 +28,4 @@ private:
     Ui::editarFuncionario *ui;
 };
 
-#endif // EDITARFUNCIONARIO_H
+#endif

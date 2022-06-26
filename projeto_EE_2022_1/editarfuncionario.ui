@@ -13,6 +13,11 @@
   <property name="windowTitle">
    <string>Editar Funcionário</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget{
+	background-color:rgb(255,255,255);
+}</string>
+  </property>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>

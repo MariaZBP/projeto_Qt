@@ -34,6 +34,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->txtNome->setPlaceholderText("Digite seu nome");
     ui->txtSenha->setPlaceholderText("Digite sua senha");
 
+    ui->btnLogin->setStyleSheet(
+                "color: white;"
+                "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));"
+                "border-style: outset;"
+                "border-width: 2px;"
+                "border-radius: 10px;"
+                "border-color: white;"
+                "font: bold 28px;");
+
 }
 
 MainWindow::~MainWindow()
