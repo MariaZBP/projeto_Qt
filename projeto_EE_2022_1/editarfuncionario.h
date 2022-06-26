@@ -17,6 +17,13 @@ public:
     explicit editarFuncionario(QWidget *parent = nullptr, int alterarFuncionario_ID = 0);
     ~editarFuncionario();
 
+private slots:
+    void on_txtEditarFuncionario_Salario_editingFinished();
+
+    void on_btnSalvarEdicaoFuncionario_clicked();
+
+    void on_btnCancelarEdicaoFuncionario_clicked();
+
 private:
     Ui::editarFuncionario *ui;
 };

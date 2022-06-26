@@ -69,6 +69,9 @@
        <height>51</height>
       </rect>
      </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">

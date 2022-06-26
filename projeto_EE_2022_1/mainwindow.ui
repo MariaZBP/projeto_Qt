@@ -58,6 +58,9 @@
           <pointsize>14</pointsize>
          </font>
         </property>
+        <property name="text">
+         <string>Aluno</string>
+        </property>
        </widget>
       </item>
       <item>
@@ -73,6 +76,9 @@
          <font>
           <pointsize>14</pointsize>
          </font>
+        </property>
+        <property name="text">
+         <string>aluno</string>
         </property>
         <property name="echoMode">
          <enum>QLineEdit::Password</enum>

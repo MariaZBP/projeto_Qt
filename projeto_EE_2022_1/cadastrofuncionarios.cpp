@@ -27,11 +27,12 @@ CadastroFuncionarios::~CadastroFuncionarios()
 void CadastroFuncionarios::on_btnSalvarFuncionario_clicked()
 {
 
-    QString salarioSemVirgula;
+
 
     QString cpf = ui->txtCadastroFuncionario_CPF->text();
     QString nome = ui->txtCadastroFuncionario_Nome->text();
 
+    QString salarioSemVirgula;
     salarioSemVirgula = ui->txtCadastroFuncionario_Salario->text();
 
     //antes = 1.235,10
