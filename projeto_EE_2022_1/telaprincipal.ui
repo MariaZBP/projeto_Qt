@@ -123,12 +123,12 @@
       </rect>
      </property>
     </widget>
-    <widget class="QLabel" name="lblTotalRegistros">
+    <widget class="QLabel" name="lblTotalSalarios">
      <property name="geometry">
       <rect>
        <x>30</x>
        <y>610</y>
-       <width>441</width>
+       <width>371</width>
        <height>31</height>
       </rect>
      </property>
@@ -197,6 +197,42 @@
        <string>Departamento</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QLabel" name="lblMaiorSalario">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>610</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Total de Registros</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTotalRegistros_2">
+     <property name="geometry">
+      <rect>
+       <x>780</x>
+       <y>610</y>
+       <width>371</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Total de Registros</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_2">

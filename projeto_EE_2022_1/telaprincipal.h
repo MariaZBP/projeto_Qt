@@ -22,6 +22,8 @@ public:
 
     double somarSalarios(QTableWidget *tabela, int coluna);
 
+    double maiorSalario(QTableWidget *tabela, int coluna);
+
 private slots:
     void on_txtPesquisarFuncionario_textChanged(const QString &arg1);
 
@@ -35,4 +37,4 @@ private:
     Ui::TelaPrincipal *ui;
 };
 
-#endif // TELAPRINCIPAL_H
+#endif

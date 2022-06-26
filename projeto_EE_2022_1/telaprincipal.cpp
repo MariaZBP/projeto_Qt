@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include "cadastrofuncionarios.h"
 #include "editarfuncionario.h"
+#include <QVector>
 
 TelaPrincipal::TelaPrincipal(QWidget *parent) :
     QDialog(parent),
@@ -86,6 +87,22 @@ void TelaPrincipal::carregarDados(){
             ui->tableWidgetFuncionario->setRowHeight(linha, 40);
 
             linha++;
+
+            QString valorTexto;
+            QString valorTexto2;
+            auto formato = QLocale("de_DE");
+            double valorSalario = somarSalarios(ui->tableWidgetFuncionario, 3);
+            double valorSalario2 = maiorSalario(ui->tableWidgetFuncionario, 3);
+
+            //f = double - casas decimais 2
+            valorTexto = formato.toString(valorSalario, 'f', 2);
+            valorTexto2 = formato.toString(valorSalario2, 'f', 2);
+
+           ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
+           ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
+
+
+
         }
 
         //coloca os títulos na tabela
@@ -185,6 +202,20 @@ void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
             ui->tableWidgetFuncionario->setRowHeight(linha, 40);
 
             linha++;
+
+            QString valorTexto;
+            QString valorTexto2;
+            auto formato = QLocale("de_DE");
+            double valorSalario = somarSalarios(ui->tableWidgetFuncionario, 3);
+            double valorSalario2 = maiorSalario(ui->tableWidgetFuncionario, 3);
+
+            //f = double - casas decimais 2
+            valorTexto = formato.toString(valorSalario, 'f', 2);
+            valorTexto2 = formato.toString(valorSalario2, 'f', 2);
+
+            ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
+            ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
+
 
         }
 
@@ -315,5 +346,33 @@ double TelaPrincipal::somarSalarios(QTableWidget *tabela, int coluna){
     }
 
     return total;
+
+}
+
+double TelaPrincipal::maiorSalario(QTableWidget *tabela, int coluna){
+
+    int totalLinhas;
+    QVector<double> salario;
+
+    totalLinhas = tabela->rowCount();
+
+    for(int linha = 0; linha < totalLinhas; linha++){
+
+        salario.push_back(tabela->item(linha, coluna)->text().toDouble());
+
+    }
+
+    double maiorSalario = salario[0];
+
+    for(int i = 1; i < salario.size(); i++){
+
+        if(salario.at(i) > maiorSalario){
+
+            maiorSalario = salario.at(i);
+        }
+
+    }
+
+    return maiorSalario;
 
 }
