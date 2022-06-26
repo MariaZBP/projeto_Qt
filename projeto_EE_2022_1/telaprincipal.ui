@@ -126,19 +126,22 @@
     <widget class="QLabel" name="lblTotalSalarios">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>20</x>
        <y>610</y>
-       <width>371</width>
+       <width>311</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <italic>false</italic>
+       <bold>true</bold>
       </font>
      </property>
      <property name="text">
-      <string>Total de Registros</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#000000;&quot;&gt;Soma de Salários&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QGroupBox" name="groupBox">
@@ -201,27 +204,35 @@
     <widget class="QLabel" name="lblMaiorSalario">
      <property name="geometry">
       <rect>
-       <x>430</x>
+       <x>420</x>
        <y>610</y>
-       <width>371</width>
+       <width>261</width>
        <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
        <pointsize>10</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
       </font>
      </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
      <property name="text">
-      <string>Total de Registros</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Maior Salário&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QLabel" name="lblTotalRegistros_2">
+    <widget class="QLabel" name="lblTotalRegistros">
      <property name="geometry">
       <rect>
-       <x>780</x>
+       <x>900</x>
        <y>610</y>
-       <width>371</width>
+       <width>211</width>
        <height>31</height>
       </rect>
      </property>
@@ -231,7 +242,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Total de Registros</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Total de Registros&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </widget>

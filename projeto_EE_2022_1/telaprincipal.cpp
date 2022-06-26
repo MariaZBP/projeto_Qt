@@ -100,8 +100,16 @@ void TelaPrincipal::carregarDados(){
 
            ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
            ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
+           ui->lblTotalSalarios->setStyleSheet("color: black;"
+                                               "background-color: #aaff7f;"
+                                               "selection-color: black;"
+                                               "selection-background-color: #aaff7f;");
+           ui->lblMaiorSalario->setStyleSheet("color: black;"
+                                               "background-color: #aaff7f;"
+                                               "selection-color: black;"
+                                               "selection-background-color: #aaff7f;");
 
-
+           ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
 
         }
 
@@ -216,6 +224,7 @@ void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
             ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
             ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
 
+             ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
 
         }
 
@@ -298,7 +307,11 @@ void TelaPrincipal::on_tableWidgetFuncionario_cellDoubleClicked(int row, int col
             ui->tableWidgetFuncionario->setRowHeight(linha, 40);
 
             linha++;
+
+            ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
         }
+
+
 
         //coloca os títulos na tabela
         QStringList titulos = {"ID", "CPF", "Nome", "Salário", "Departamento", "Data Nascimento", "Telefone", "E-mail"};
