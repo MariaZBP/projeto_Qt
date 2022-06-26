@@ -33,8 +33,12 @@ private slots:
 
     void on_tableWidgetFuncionario_cellDoubleClicked(int row, int column);
 
+    void on_btnExportarExcel_clicked();
+
 private:
     Ui::TelaPrincipal *ui;
+
+    QString getValueAt(int linha, int coluna);
 };
 
 #endif

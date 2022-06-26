@@ -256,6 +256,28 @@
       <string>Filtro Colunas</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="btnExportarExcel">
+     <property name="geometry">
+      <rect>
+       <x>900</x>
+       <y>160</y>
+       <width>231</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>    Exportar</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursosimagens.qrc">
+       <normaloff>:/Imagens/Imagens/excel.png</normaloff>:/Imagens/Imagens/excel.png</iconset>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
