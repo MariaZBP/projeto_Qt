@@ -19,6 +19,11 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
                                                "selection-color: black;"
                                                "selection-background-color: #aaff7f;");
 
+    ui->comboBoxColunaFiltro->setStyleSheet("color: black;"
+                                               "background-color: #aaff7f;"
+                                               "selection-color: black;"
+                                               "selection-background-color: #aaff7f;");
+
     ui->btnCadastrarFuncionario->setStyleSheet(
                 "colr: white;"
                 "background-color: #00ff7f;"
@@ -36,11 +41,6 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
                 "border-radius: 10px;"
                 "border-color: white;"
                 "font: bold 14px;");
-
-    //marcando e desmarcando rb
-    ui->rdNome->setChecked(true);
-    ui->rdCPF->setChecked(false);
-    ui->rdDepartamento->setChecked(false);
 
     carregarDados();
 
@@ -149,43 +149,50 @@ void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
 
     limparTableWidget(ui->tableWidgetFuncionario);
 
+    QString colunaFiltro = ui->comboBoxColunaFiltro->currentText();
+
     QString textoPesquisa = ui->txtPesquisarFuncionario->text();
 
-    if(textoPesquisa == ""){
+    if(colunaFiltro == "ID"){
 
-        if(ui->rdCPF->isChecked()){
+        //digitando parte do nome o like já trás ele
+        //%-> começa em qualquer valor e termina em qualquer valor
+        pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where idFuncionario like '%"+textoPesquisa+"%'";
 
-            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios order by cpfFuncionario";
+    }else if(colunaFiltro == "CPF"){
 
-        }else if(ui->rdNome->isChecked()){
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where cpfFuncionario like '%"+textoPesquisa+"%'";
 
-            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios order by nomeFuncionario";
+    }else if(colunaFiltro == "Nome"){
 
-        }else{
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where nomeFuncionario like '%"+textoPesquisa+"%'";
 
-            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios order by departamentoFuncionario";
+    }else if(colunaFiltro == "Salário"){
 
-        }
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where salarioFuncionario like '%"+textoPesquisa+"%'";
+
+    }else if(colunaFiltro == "Departamento"){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where departamentoFuncionario like '%"+textoPesquisa+"%'";
+
+    }else if(colunaFiltro == "Data de Nascimento"){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where dataNascimentoFuncionario like '%"+textoPesquisa+"%'";
+
+    }else if(colunaFiltro == "Telefone"){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where telefoneFuncionario like '%"+textoPesquisa+"%'";
+
+    }else if(colunaFiltro == "Email"){
+
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where emailFuncionario like '%"+textoPesquisa+"%'";
 
     }else{
 
-        if(ui->rdCPF->isChecked()){
-
-            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where cpfFuncionario = "+textoPesquisa+" order by cpfFuncionario";
-
-        }else if(ui->rdNome->isChecked()){
-
-            //digitando parte do nome o like já trás ele
-            //%-> começa em qualquer valor e termina em qualquer valor
-            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where nomeFuncionario like '%"+textoPesquisa+"%' order by nomeFuncionario";
-
-        }else{
-
-            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where departamentoFuncionario like '%"+textoPesquisa+"%' order by departamentoFuncionario";
+            pesquisa = "Select idFuncionario, cpfFuncionario, nomeFuncionario, salarioFuncionario, departamentoFuncionario, dataNascimentoFuncionario, telefoneFuncionario, emailFuncionario From Funcionarios where idFuncionario like '%"+textoPesquisa+"%'";
 
         }
 
-    }
 
     int linha = 0;
 
@@ -340,8 +347,6 @@ void TelaPrincipal::on_tableWidgetFuncionario_cellDoubleClicked(int row, int col
         QMessageBox::information(this, "Atenção", "Erro ao carregar os funcionários!");
 
     }
-
-
 
 }
 
