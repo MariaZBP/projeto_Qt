@@ -1,9 +1,6 @@
 #include "editarfuncionario.h"
 #include "ui_editarfuncionario.h"
 
-#include <QtSql>
-#include <QMessageBox>
-
 static int idSelecionado;
 
 editarFuncionario::editarFuncionario(QWidget *parent, int alterarFuncionario_ID) :

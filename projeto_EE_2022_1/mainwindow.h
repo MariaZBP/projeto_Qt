@@ -2,6 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <telaprincipal.h>
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
@@ -22,4 +27,4 @@ private:
     Ui::MainWindow *ui;
 };
 
-#endif
+#endif  //MAINWINDOW_H

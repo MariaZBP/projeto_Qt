@@ -3,6 +3,15 @@
 
 #include <QDialog>
 #include <QTableWidget>
+#include <QtSql>
+#include <QMessageBox>
+#include "cadastrofuncionarios.h"
+#include "editarfuncionario.h"
+#include <QVector>
+#include <QFileDialog>
+#include <QTextStream>
+#include <QFile>
+
 
 namespace Ui {
 class TelaPrincipal;
@@ -16,7 +25,7 @@ public:
     explicit TelaPrincipal(QWidget *parent = nullptr);
     ~TelaPrincipal();
 
-    void carregarDados();
+    void carregarDadosFuncionarios();
 
     void limparTableWidget(QTableWidget *limpaTW);
 
@@ -24,7 +33,7 @@ public:
 
     double maiorSalario(QTableWidget *tabela, int coluna);
 
-private slots:
+protected slots:
     void on_txtPesquisarFuncionario_textChanged(const QString &arg1);
 
     void on_btnCadastrarFuncionario_clicked();
@@ -35,10 +44,10 @@ private slots:
 
     void on_btnExportarExcel_clicked();
 
-private:
+protected:
     Ui::TelaPrincipal *ui;
 
     QString getValueAt(int linha, int coluna);
 };
 
-#endif
+#endif //TELAPRINCIPAL_H

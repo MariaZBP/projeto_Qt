@@ -1,7 +1,5 @@
 #include "cadastrofuncionarios.h"
 #include "ui_cadastrofuncionarios.h"
-#include <QtSql>
-#include <QMessageBox>
 
 CadastroFuncionarios::CadastroFuncionarios(QWidget *parent) :
     QDialog(parent),

@@ -2,6 +2,8 @@
 #define EDITARFUNCIONARIO_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QMessageBox>
 
 namespace Ui {
 class editarFuncionario;
@@ -28,4 +30,4 @@ private:
     Ui::editarFuncionario *ui;
 };
 
-#endif
+#endif  //EDITARFUNCIONARIO_H

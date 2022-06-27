@@ -1,12 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <telaprincipal.h>
-#include <QtSql>
-#include <QDebug>
-#include <QFileInfo>
-#include <QMessageBox>
-
 //Declara como banco de dados global
 static QSqlDatabase bancoDados = QSqlDatabase::addDatabase("QSQLITE");
 

@@ -2,6 +2,8 @@
 #define CADASTROFUNCIONARIOS_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QMessageBox>
 
 namespace Ui {
 class CadastroFuncionarios;
@@ -24,4 +26,4 @@ private:
     Ui::CadastroFuncionarios *ui;
 };
 
-#endif
+#endif   //CADASTROFUNCIONARIOS_H

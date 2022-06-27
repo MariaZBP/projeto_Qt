@@ -1,13 +1,5 @@
 #include "telaprincipal.h"
 #include "ui_telaprincipal.h"
-#include <QtSql>
-#include <QMessageBox>
-#include "cadastrofuncionarios.h"
-#include "editarfuncionario.h"
-#include <QVector>
-#include <QFileDialog>
-#include <QTextStream>
-#include <QFile>
 
 TelaPrincipal::TelaPrincipal(QWidget *parent) :
     QDialog(parent),
@@ -17,7 +9,14 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
 
     ui->txtPesquisarFuncionario->setPlaceholderText("Digite algo para pesquisar");
 
+    ui->txtPesquisarCliente->setPlaceholderText("Digite algo para pesquisar");
+
     ui->txtPesquisarFuncionario->setStyleSheet("color: black;"
+                                               "background-color: #aaff7f;"
+                                               "selection-color: black;"
+                                               "selection-background-color: #aaff7f;");
+
+    ui->txtPesquisarCliente->setStyleSheet("color: black;"
                                                "background-color: #aaff7f;"
                                                "selection-color: black;"
                                                "selection-background-color: #aaff7f;");
@@ -27,7 +26,22 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
                                                "selection-color: black;"
                                                "selection-background-color: #aaff7f;");
 
+    ui->comboBoxColunaFiltroCliente->setStyleSheet("color: black;"
+                                               "background-color: #aaff7f;"
+                                               "selection-color: black;"
+                                               "selection-background-color: #aaff7f;");
+
+
     ui->btnCadastrarFuncionario->setStyleSheet(
+                "color: black;"
+                "background-color: #00ff7f;"
+                "border-style: outset;"
+                "border-width: 2px;"
+                "border-radius: 10px;"
+                "border-color: white;"
+                "font: bold 16px;");
+
+    ui->btnCadastrarCliente->setStyleSheet(
                 "color: black;"
                 "background-color: #00ff7f;"
                 "border-style: outset;"
@@ -45,7 +59,25 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
                 "border-color: white;"
                 "font: bold 16px;");
 
+    ui->btnExcluirCliente->setStyleSheet(
+                "color: black;"
+                "background-color: #00ff7f;"
+                "border-style: outset;"
+                "border-width: 2px;"
+                "border-radius: 10px;"
+                "border-color: white;"
+                "font: bold 16px;");
+
     ui->btnExportarExcel->setStyleSheet(
+                "color: black;"
+                "background-color: #aaffff;"
+                "border-style: outset;"
+                "border-width: 2px;"
+                "border-radius: 10px;"
+                "border-color: white;"
+                "font: bold 16px;");
+
+    ui->btnExportarClienteExcel->setStyleSheet(
                 "color: black;"
                 "background-color: #aaffff;"
                 "border-style: outset;"
@@ -66,7 +98,7 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
     ui->lblTotalSalarios->setPalette(paleta);
     ui->lblMaiorSalario->setPalette(paleta);
 
-    carregarDados();
+    carregarDadosFuncionarios();
 
 }
 
@@ -86,7 +118,7 @@ void TelaPrincipal::limparTableWidget(QTableWidget *limpaTW){
 
 }
 
-void TelaPrincipal::carregarDados(){
+void TelaPrincipal::carregarDadosFuncionarios(){
 
     limparTableWidget(ui->tableWidgetFuncionario);
 
@@ -124,9 +156,10 @@ void TelaPrincipal::carregarDados(){
 
            ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
            ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
-           ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
 
         }
+
+         ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
 
         //coloca os títulos na tabela
         QStringList titulos = {"ID", "CPF", "Nome", "Salário", "Departamento", "Data Nascimento", "Telefone", "E-mail"};
@@ -246,9 +279,10 @@ void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
             ui->lblTotalSalarios->setText("Total dos Salários: R$ " + valorTexto);
             ui->lblMaiorSalario->setText("Maior Salário: R$ " + valorTexto2);
 
-             ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
-
         }
+
+        ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
+
 
     }else{
 
@@ -264,7 +298,7 @@ void TelaPrincipal::on_btnCadastrarFuncionario_clicked()
     CadastroFuncionarios abreFormularioCadastro;
     abreFormularioCadastro.exec();
 
-    carregarDados();
+    carregarDadosFuncionarios();
 
 }
 
@@ -330,10 +364,9 @@ void TelaPrincipal::on_tableWidgetFuncionario_cellDoubleClicked(int row, int col
 
             linha++;
 
-            ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
         }
 
-
+         ui->lblTotalRegistros->setText("Registros encontrados: " + QString::number(linha));
 
         //coloca os títulos na tabela
         QStringList titulos = {"ID", "CPF", "Nome", "Salário", "Departamento", "Data Nascimento", "Telefone", "E-mail"};

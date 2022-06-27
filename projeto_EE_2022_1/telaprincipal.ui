@@ -16,8 +16,8 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
+     <x>0</x>
+     <y>0</y>
      <width>1201</width>
      <height>721</height>
     </rect>
@@ -33,7 +33,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -295,6 +295,205 @@
     <attribute name="title">
      <string>Clientes</string>
     </attribute>
+    <widget class="QPushButton" name="btnExcluirCliente">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>30</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>    Excluir</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursosimagens.qrc">
+       <normaloff>:/Imagens/Imagens/excluir.png</normaloff>:/Imagens/Imagens/excluir.png</iconset>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="tableWidgetClientes">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>220</y>
+       <width>1111</width>
+       <height>371</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnCadastrarCliente">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>30</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>   Novo</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <selectedon>:/Imagens/Imagens/novo.png</selectedon>
+      </iconset>
+     </property>
+    </widget>
+    <widget class="QLabel" name="lblTotalRegistrosCliente">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
+       <y>600</y>
+       <width>211</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Total de Registros&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="comboBoxColunaFiltroCliente">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>150</y>
+       <width>371</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <item>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>CPF</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Nome</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Endereço</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Data de Nascimento</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Telefone</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Email</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>120</y>
+       <width>421</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Digite algo para pesquisar</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="txtPesquisarCliente">
+     <property name="geometry">
+      <rect>
+       <x>420</x>
+       <y>150</y>
+       <width>471</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="clearButtonEnabled">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>120</y>
+       <width>361</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Filtro Colunas</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="btnExportarClienteExcel">
+     <property name="geometry">
+      <rect>
+       <x>910</x>
+       <y>150</y>
+       <width>231</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>    Exportar</string>
+     </property>
+     <property name="icon">
+      <iconset resource="recursosimagens.qrc">
+       <normaloff>:/Imagens/Imagens/excel.png</normaloff>:/Imagens/Imagens/excel.png</iconset>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>
