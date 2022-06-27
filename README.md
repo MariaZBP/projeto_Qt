@@ -6,7 +6,7 @@ Esse aplicativo pode ser usado para pesquisa, controle, cadastro, exclusão, atu
 
 Há uma tela inicial de login onde pode ser cadastrado em um banco de dados pessoas com autorização de acesso, obtendo assim um controle maior sobre esses dados.
 
-Uma segunda janela é aberta após a autenticação onde, estão presentes duas abas (tabWidget). Uma representa uma base de dados dos funcionários e a outra representa uma base de dados dos clientes. Foi utilizado o SQL Lite para gerar o banco de dados.
+Uma segunda janela é aberta após a autenticação onde, estão presentes duas abas (tabWidget). Uma representa uma base de dados dos funcionários e a outra representa uma base de dados dos clientes. Foi utilizado o SQL Lite Studio para gerar o banco de dados.
 
 Em cada aba existem 3 botões, um para gerar o cadastro, outro para excluir um cadastro e um terceiro para gerar o arquivo .csv. Em Filtro Colunas, é possível realizar uma pesquisa filtrando por cada campo presente na tabela apresentada. Pode ser digitado o que se deseja pesquisar no campo: Digite algo para pesquisar. Ambas as tabelas, Funcionários e Clientes, possuem essas funcionalidades.
 
