@@ -46,6 +46,8 @@ private slots:
 
     void on_btnExportarExcel_clicked();
 
+    void on_txtPesquisarCliente_textChanged(const QString &arg1);
+
 private:
     Ui::TelaPrincipal *ui;
 

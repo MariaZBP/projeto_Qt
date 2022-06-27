@@ -33,7 +33,7 @@
 }</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -320,10 +320,10 @@
     <widget class="QTableWidget" name="tableWidgetClientes">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>10</x>
        <y>220</y>
-       <width>1111</width>
-       <height>371</height>
+       <width>1151</width>
+       <height>391</height>
       </rect>
      </property>
     </widget>
@@ -354,7 +354,7 @@
      <property name="geometry">
       <rect>
        <x>910</x>
-       <y>600</y>
+       <y>620</y>
        <width>211</width>
        <height>31</height>
       </rect>
