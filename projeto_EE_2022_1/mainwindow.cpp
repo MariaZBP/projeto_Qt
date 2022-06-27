@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //Cria a conexão com o banco de dados
-    bancoDados.setDatabaseName("C:/Users/Ceiça/Documents/Projeto_Qt/projeto_EE_2022_1/Banco de Dados0.db");
+    bancoDados.setDatabaseName("C:/Users/Ceiça/Documents/Projeto_Qt/projeto_EE_2022_1/banco_de_dados/banco.db");
 
     //Verifica se o banco de dados foi conectado
     if(bancoDados.open()){

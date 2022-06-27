@@ -26,16 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
     telaprincipal.cpp \
     cadastrofuncionarios.cpp \
-    editarfuncionario.cpp
+    editarfuncionario.cpp \
+    mainwindow.cpp
 
 HEADERS += \
-        mainwindow.h \
     telaprincipal.h \
     cadastrofuncionarios.h \
-    editarfuncionario.h
+    editarfuncionario.h \
+    mainwindow.h
 
 FORMS += \
         mainwindow.ui \

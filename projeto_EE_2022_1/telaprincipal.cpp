@@ -99,6 +99,7 @@ TelaPrincipal::TelaPrincipal(QWidget *parent) :
     ui->lblMaiorSalario->setPalette(paleta);
 
     carregarDadosFuncionarios();
+    carregarDadosClientes();
 
 }
 
@@ -189,6 +190,67 @@ void TelaPrincipal::carregarDadosFuncionarios(){
     }
 
 }
+
+void TelaPrincipal::carregarDadosClientes(){
+
+    limparTableWidget(ui->tableWidgetClientes);
+
+    QSqlQuery pegaDados;
+    pegaDados.prepare("Select * from Clientes");
+
+    if(pegaDados.exec()){
+
+        int linha = 0;
+        ui->tableWidgetClientes->setColumnCount(7);
+
+        while(pegaDados.next()){
+
+            ui->tableWidgetClientes->insertRow(linha);
+
+            for(int i = 0; i < 7; i++){
+
+                ui->tableWidgetClientes->setItem(linha, i, new QTableWidgetItem(pegaDados.value(i).toString()));
+
+            }
+
+            ui->tableWidgetClientes->setRowHeight(linha, 40);
+
+            linha++;
+
+        }
+
+         ui->lblTotalRegistrosCliente->setText("Registros encontrados: " + QString::number(linha));
+
+        //coloca os títulos na tabela
+        QStringList titulos = {"ID", "CPF", "Nome", "Endereço", "Data Nascimento", "Telefone", "E-mail"};
+
+        ui->tableWidgetClientes->setHorizontalHeaderLabels(titulos);
+
+        //oculta os números das linhas que ficaram a esquerda
+        ui->tableWidgetClientes->verticalHeader()->setVisible(false);
+
+        //ajusta a largura das colunas
+        ui->tableWidgetClientes->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
+        ui->tableWidgetClientes->verticalHeader()->resizeSections(QHeaderView::ResizeToContents);
+
+        //desabilita a edição dos dados direto na tableWidgetClientes
+        ui->tableWidgetClientes->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+        //seleciona a linha inteira da tableWidgetClientes
+        ui->tableWidgetClientes->setSelectionBehavior(QAbstractItemView::SelectRows);
+
+        //mudar a cor dos títulos da tabela
+        ui->tableWidgetClientes->setStyleSheet("QHeaderView::section {color: white; background-color: #55aa7f}");
+
+
+    }else{
+
+        QMessageBox::information(this, "Atenção", "Erro ao carregar os dados dos clientes!");
+    }
+
+}
+
+//----------------------------------------------------------parei aqui
 
 void TelaPrincipal::on_txtPesquisarFuncionario_textChanged(const QString &arg1)
 {

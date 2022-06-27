@@ -33,7 +33,7 @@ void CadastroFuncionarios::on_btnSalvarFuncionario_clicked()
     QString salarioSemVirgula;
     salarioSemVirgula = ui->txtCadastroFuncionario_Salario->text();
 
-    //antes = 1.235,10
+    //antes = R$ 1.235,10
     //depois = 1235.10
     salarioSemVirgula.replace(0, 3, "");
     salarioSemVirgula.replace(".", "");

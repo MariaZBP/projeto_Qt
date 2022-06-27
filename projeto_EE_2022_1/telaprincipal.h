@@ -27,13 +27,15 @@ public:
 
     void carregarDadosFuncionarios();
 
+    void carregarDadosClientes();
+
     void limparTableWidget(QTableWidget *limpaTW);
 
     double somarSalarios(QTableWidget *tabela, int coluna);
 
     double maiorSalario(QTableWidget *tabela, int coluna);
 
-protected slots:
+private slots:
     void on_txtPesquisarFuncionario_textChanged(const QString &arg1);
 
     void on_btnCadastrarFuncionario_clicked();
@@ -44,7 +46,7 @@ protected slots:
 
     void on_btnExportarExcel_clicked();
 
-protected:
+private:
     Ui::TelaPrincipal *ui;
 
     QString getValueAt(int linha, int coluna);
